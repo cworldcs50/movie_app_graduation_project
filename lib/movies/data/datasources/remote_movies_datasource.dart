@@ -113,4 +113,12 @@ class RemoteMoviesDatasource extends BaseMoviesDatasource {
       return Left(Failure(errorMessage: exception.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<MoviesModel>>> getPopularMoviesCards() async =>
+      await getPopularMovies();
+
+  @override
+  Future<Either<Failure, List<MoviesModel>>> getTopRatedMoviesCards() async =>
+      await getTopRatedMovies();
 }

@@ -36,4 +36,12 @@ class MoviesRepository implements MoviesBaseRepository {
   Future<Either<Failure, List<MoviesRecommendationModel>>> getRecommendedMovies(
     GetRecommendedMoviesParameters parameters,
   ) async => await baseMoviesDatasource.getRecommendedMovies(parameters);
+
+  @override
+  Future<Either<Failure, List<Movies>>> getPopularMoviesCards() async =>
+      await baseMoviesDatasource.getPopularMoviesCards();
+
+  @override
+  Future<Either<Failure, List<Movies>>> getTopRatedMoviesCards() async =>
+      await baseMoviesDatasource.getTopRatedMoviesCards();
 }

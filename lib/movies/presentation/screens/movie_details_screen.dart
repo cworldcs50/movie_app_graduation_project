@@ -12,6 +12,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import '../controllers/movie_details_bloc/movie_details_bloc.dart';
 import '../custom_widgets/custom_circular_progress_indicator.dart';
 import '../custom_widgets/custom_error_message_widget.dart';
+import '../custom_widgets/custom_release_date.dart';
+import '../custom_widgets/custom_vote_average_row.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   const MovieDetailsScreen({
@@ -112,54 +114,15 @@ class MovieDetailsContent extends StatelessWidget {
                           const SizedBox(height: 8.0),
                           Row(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 2.0,
-                                  horizontal: 8.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[800],
-                                  borderRadius: BorderRadius.circular(4.0),
-                                ),
-                                child: Text(
-                                  state.movieDetails!.releaseDate.substring(
-                                    0,
-                                    4,
-                                  ),
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
+                              CustomReleaseDate(
+                                color: Colors.grey[800]!,
+                                releaseDate: state.movieDetails!.releaseDate
+                                    .substring(0, 4),
                               ),
                               const SizedBox(width: 16.0),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 20.0,
-                                  ),
-                                  const SizedBox(width: 4.0),
-                                  Text(
-                                    (state.movieDetails!.voteAverage / 2)
-                                        .toStringAsFixed(1),
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 4.0),
-                                  Text(
-                                    '(${state.movieDetails!.voteAverage})',
-                                    style: const TextStyle(
-                                      fontSize: 1.0,
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
-                                ],
+                              CustomVoteAverageRow(
+                                voteAverage: state.movieDetails!.voteAverage
+                                    .toStringAsFixed(1),
                               ),
                               const SizedBox(width: 16.0),
                               Text(

@@ -14,4 +14,7 @@ abstract class MoviesBaseRepository {
     required GetMovieDetailsParameters getMovieDetailsParamters,
   });
   Future<Either<Failure, List<MoviesRecommendation>>> getRecommendedMovies(GetRecommendedMoviesParameters parameters);
+  Future<Either<Failure, List<Movies>>> getPopularMoviesCards();
+  Future<Either<Failure, List<Movies>>> getTopRatedMoviesCards();
+
 }

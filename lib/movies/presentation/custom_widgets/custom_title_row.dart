@@ -3,10 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/utils/app_strings.dart';
 
 class CustomTitleRow extends StatelessWidget {
-  const CustomTitleRow({required this.rowTitle, super.key});
+  const CustomTitleRow({
+    required this.rowTitle,
+    required this.onTap,
+    super.key,
+  });
 
   final String rowTitle;
-  
+  final void Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +29,7 @@ class CustomTitleRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
             child: InkWell(
-              onTap: () {},
+              onTap: onTap,
               child: Row(
                 children: [
                   Text(

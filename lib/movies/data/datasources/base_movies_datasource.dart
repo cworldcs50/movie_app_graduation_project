@@ -15,4 +15,6 @@ abstract class BaseMoviesDatasource {
   Future<Either<Failure, List<MoviesRecommendationModel>>> getRecommendedMovies(
     GetRecommendedMoviesParameters parameters,
   );
+  Future<Either<Failure, List<MoviesModel>>> getPopularMoviesCards();
+  Future<Either<Failure, List<MoviesModel>>> getTopRatedMoviesCards();
 }

@@ -8,6 +8,8 @@ import '../components/top_rated_movies_component.dart';
 import '../controllers/get_movies_bloc/movies_bloc.dart';
 import '../components/now_playing_movies_component.dart';
 import '../controllers/get_movies_bloc/movies_events.dart';
+import 'popular_see_more_screen.dart';
+import 'top_rated_see_more_screen.dart';
 
 class MovieScreen extends StatelessWidget {
   const MovieScreen({super.key});
@@ -23,15 +25,33 @@ class MovieScreen extends StatelessWidget {
                 ..add(GetTopRatedMoviesEvent()),
       child: Scaffold(
         backgroundColor: Colors.grey.shade900,
-        body: const SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              NowPlayingMoviesComponent(),
-              CustomTitleRow(rowTitle: AppStrings.kPopular),
-              PopularMoviesComponent(),
-              CustomTitleRow(rowTitle: AppStrings.kTopRated),
-              TopRatedMoviesComponent(),
-              SizedBox(height: 50),
+              const NowPlayingMoviesComponent(),
+              CustomTitleRow(
+                rowTitle: AppStrings.kPopular,
+                onTap:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PopularSeeMoreScreen(),
+                      ),
+                    ),
+              ),
+              const PopularMoviesComponent(),
+              CustomTitleRow(
+                rowTitle: AppStrings.kTopRated,
+                onTap:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TopRatedSeeMoreScreen(),
+                      ),
+                    ),
+              ),
+              const TopRatedMoviesComponent(),
+              const SizedBox(height: 50),
             ],
           ),
         ),
