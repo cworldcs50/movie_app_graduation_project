@@ -14,19 +14,34 @@ import '../../movies/presentation/controllers/get_movies_bloc/movies_bloc.dart';
 import '../../movies/presentation/controllers/get_popular_movies_cards_bloc/popular_movies_card_bloc.dart';
 import '../../movies/presentation/controllers/get_top_rated_movies_cards_bloc/top_rated_movies_card_bloc.dart';
 import '../../movies/presentation/controllers/movie_details_bloc/movie_details_bloc.dart';
+import '../../tvs/data/datasources/base_tv_movies_data_source.dart';
+import '../../tvs/data/datasources/tv_movies_data_source.dart';
+import '../../tvs/data/repository/tv_movies_repository.dart';
+import '../../tvs/domain/repository/tv_movies_base_repository.dart';
+import '../../tvs/domain/usecases/get_on_the_air_movies_usecase.dart';
+import '../../tvs/domain/usecases/get_popular_movies_usecase.dart';
+import '../../tvs/domain/usecases/get_top_rated_movies_usecase.dart';
+import '../../tvs/presentation/controllers/get_tv_movies_bloc/get_tv_movies_bloc.dart';
 
 final sl = GetIt.instance;
 
 class ServicesLocator {
   void init() {
     //Bloc
+    sl.registerFactory<GetTvMoviesBloc>(
+      () => GetTvMoviesBloc(sl(), sl(), sl()),
+    );
+
     sl.registerFactory<TopRatedMoviesCardBloc>(
       () => TopRatedMoviesCardBloc(sl()),
     );
+
     sl.registerFactory<PopularMoviesCardBloc>(
       () => PopularMoviesCardBloc(getPopularMoviesCardsUsecase: sl()),
     );
+
     sl.registerFactory<MoviesBloc>(() => MoviesBloc(sl(), sl(), sl()));
+
     sl.registerFactory<MovieDetailsBloc>(
       () => MovieDetailsBloc(
         getRecommendedMoviesUsecase: sl(),
@@ -35,6 +50,18 @@ class ServicesLocator {
     );
 
     //usecases
+    sl.registerLazySingleton<GetTopRatedTvMoviesUsecase>(
+      () => GetTopRatedTvMoviesUsecase(tvMoviesBaseRepository: sl()),
+    );
+    
+    sl.registerLazySingleton<GetPopularTvMoviesUsecase>(
+      () => GetPopularTvMoviesUsecase(tvMoviesBaseRepository: sl()),
+    );
+
+    sl.registerLazySingleton<GetOnTheAirMoviesUsecase>(
+      () => GetOnTheAirMoviesUsecase(tvMoviesBaseRepository: sl()),
+    );
+
     sl.registerLazySingleton<GetTopRetedMoviesCardsUsecase>(
       () => GetTopRetedMoviesCardsUsecase(moviesBaseRepository: sl()),
     );
@@ -62,11 +89,19 @@ class ServicesLocator {
     );
 
     ///repository
+    sl.registerLazySingleton<TvMoviesBaseRepository>(
+      () => TvMoviesRepository(baseTvMoviesDataSource: sl()),
+    );
+
     sl.registerLazySingleton<MoviesBaseRepository>(
       () => MoviesRepository(baseMoviesDatasource: sl()),
     );
 
     ///datasource
+    sl.registerLazySingleton<BaseTvMoviesDataSource>(
+      () => TvMoviesDataSource(),
+    );
+
     sl.registerLazySingleton<BaseMoviesDatasource>(
       () => RemoteMoviesDatasource(),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/utils/app_strings.dart';
-import '../custom_widgets/custom_title_row.dart';
+import '../../../core/custom_widgets/custom_title_row.dart';
 import '../components/popular_movies_component.dart';
 import '../../../core/services/services_locator.dart';
 import '../components/top_rated_movies_component.dart';
@@ -59,3 +59,31 @@ class MovieScreen extends StatelessWidget {
     );
   }
 }
+
+/**
+ * BottomNavigationBar(
+          backgroundColor: const Color(0XFF1E1E29),
+          selectedIconTheme: const IconThemeData(size: 18),
+          elevation: 30,
+          selectedItemColor: Colors.white,
+          items: [
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.movie),
+              label: "movies",
+              backgroundColor: const Color(0XFF181823),
+              activeIcon: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.movie),
+              ),
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.abc),
+              label: 'TV',
+              backgroundColor: Color(0XFF181823),
+            ),
+          ],
+        ),
+      
+ */

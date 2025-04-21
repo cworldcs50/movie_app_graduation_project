@@ -5,31 +5,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../core/custom_widgets/custom_carousel_slider_title_widget.dart';
+import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
+import '../../../core/custom_widgets/custom_error_message_widget.dart';
 import '../../../core/network/api_constants.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/enums.dart';
-import '../controllers/get_movies_bloc/movies_bloc.dart';
-import '../controllers/get_movies_bloc/movies_states.dart';
-import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
-import '../../../core/custom_widgets/custom_error_message_widget.dart';
-import '../screens/movie_details_screen.dart';
+import '../../../movies/presentation/screens/movie_details_screen.dart';
+import '../controllers/get_tv_movies_bloc/get_tv_movies_bloc.dart';
+import '../controllers/get_tv_movies_bloc/get_tv_movies_states.dart';
 
-class NowPlayingMoviesComponent extends StatelessWidget {
-  const NowPlayingMoviesComponent({super.key});
+class OnTheAirComponent extends StatelessWidget {
+  const OnTheAirComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MoviesBloc, MoviesState>(
+    return BlocBuilder<GetTvMoviesBloc, GetTvMoviesStates>(
       buildWhen:
           (previous, current) =>
-              previous.nowPlayingState != current.nowPlayingState,
-      builder: (context, states) {
-        switch (states.nowPlayingState) {
+              previous.onTheAirRequestState != current.onTheAirRequestState,
+      builder: (context, state) {
+        switch (state.onTheAirRequestState) {
           case RequestStates.loading:
-            return Center(
-              child: CustomCircularProgressIndicator(
-                height: MediaQuery.of(context).size.height / 2.0,
-              ),
+            return CustomCircularProgressIndicator(
+              height: MediaQuery.of(context).size.height / 2.0,
             );
           case RequestStates.loaded:
             return FadeIn(
@@ -41,7 +39,7 @@ class NowPlayingMoviesComponent extends StatelessWidget {
                   viewportFraction: 1.0,
                 ),
                 items:
-                    states.nowPlayingMovies.map((movie) {
+                    state.onTheAirTvMovies.map((movie) {
                       return GestureDetector(
                         onTap:
                             () => Navigator.of(context).push(
@@ -93,12 +91,12 @@ class NowPlayingMoviesComponent extends StatelessWidget {
                                 spacing: 15,
                                 children: [
                                   const CustomCarouselSliderTitleWidget(
-                                    rowTitle: AppStrings.kNowPlaying,
+                                    rowTitle: AppStrings.kOnTheAir,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(bottom: 7),
                                     child: Text(
-                                      movie.title,
+                                      movie.name,
                                       textAlign: TextAlign.center,
                                       style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
@@ -119,7 +117,7 @@ class NowPlayingMoviesComponent extends StatelessWidget {
             );
 
           case RequestStates.error:
-            return CustomErrorMessageWidget(errorMessage: states.errorMessage);
+            return CustomErrorMessageWidget(errorMessage: state.errorMessage);
         }
       },
     );

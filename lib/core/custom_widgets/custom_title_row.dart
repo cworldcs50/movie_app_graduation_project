@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../core/utils/app_strings.dart';
+import '../utils/app_strings.dart';
 
 class CustomTitleRow extends StatelessWidget {
   const CustomTitleRow({

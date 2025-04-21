@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import '../custom_widgets/custom_movie_card.dart';
+import '../../../core/custom_widgets/custom_movie_card.dart';
 
 class PopularMoviesCardsComponent extends StatelessWidget {
   const PopularMoviesCardsComponent({

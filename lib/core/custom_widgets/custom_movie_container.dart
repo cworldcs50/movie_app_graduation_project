@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../../core/network/api_constants.dart';
+import '../network/api_constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
-import '../screens/movie_details_screen.dart';
+import '../../movies/presentation/screens/movie_details_screen.dart';
 
 class CustomMovieContainer extends StatelessWidget {
   const CustomMovieContainer({

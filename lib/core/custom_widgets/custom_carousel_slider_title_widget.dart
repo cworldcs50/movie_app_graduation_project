@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../core/utils/app_strings.dart';
 
-class CustomNowPlayingRowWidget extends StatelessWidget {
-  const CustomNowPlayingRowWidget({super.key});
+class CustomCarouselSliderTitleWidget extends StatelessWidget {
+  const CustomCarouselSliderTitleWidget({required this.rowTitle, super.key});
 
+  final String rowTitle;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,7 +17,7 @@ class CustomNowPlayingRowWidget extends StatelessWidget {
           size: MediaQuery.of(context).textScaler.scale(20),
         ),
         Text(
-          AppStrings.kNowPlaying,
+          rowTitle,
           style: GoogleFonts.poppins(
             fontSize: MediaQuery.of(context).textScaler.scale(20),
 

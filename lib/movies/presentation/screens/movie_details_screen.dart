@@ -10,10 +10,10 @@ import '../../domain/entities/genres.dart';
 import '../../../core/services/services_locator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../controllers/movie_details_bloc/movie_details_bloc.dart';
-import '../custom_widgets/custom_circular_progress_indicator.dart';
-import '../custom_widgets/custom_error_message_widget.dart';
-import '../custom_widgets/custom_release_date.dart';
-import '../custom_widgets/custom_vote_average_row.dart';
+import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
+import '../../../core/custom_widgets/custom_error_message_widget.dart';
+import '../../../core/custom_widgets/custom_release_date.dart';
+import '../../../core/custom_widgets/custom_vote_average_row.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   const MovieDetailsScreen({

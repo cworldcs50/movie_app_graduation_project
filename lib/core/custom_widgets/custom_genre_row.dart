@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../core/utils/app_strings.dart';
-import '../../../core/utils/dummy_for_movie_details.dart';
+import '../utils/app_strings.dart';
+import '../utils/dummy_for_movie_details.dart';
 
 class CustomGenresRow extends StatelessWidget {
   const CustomGenresRow({super.key});

@@ -5,10 +5,10 @@ import '../../../core/utils/enums.dart';
 import '../controllers/get_popular_movies_cards_bloc/popular_movies_card_bloc.dart';
 import '../controllers/get_popular_movies_cards_bloc/popular_movies_card_event.dart';
 import '../controllers/get_popular_movies_cards_bloc/popular_movies_card_states.dart';
-import '../custom_widgets/custom_circular_progress_indicator.dart';
-import '../custom_widgets/custom_error_message_widget.dart';
-import '../custom_widgets/custom_movie_card.dart';
-import '../custom_widgets/custom_see_more_sliver_app_bar.dart';
+import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
+import '../../../core/custom_widgets/custom_error_message_widget.dart';
+import '../../../core/custom_widgets/custom_movie_card.dart';
+import '../../../core/custom_widgets/custom_see_more_sliver_app_bar.dart';
 
 class PopularSeeMoreScreen extends StatelessWidget {
   const PopularSeeMoreScreen({super.key});

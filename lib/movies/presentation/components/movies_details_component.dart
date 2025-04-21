@@ -8,8 +8,8 @@ import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/enums.dart';
 import '../../domain/entities/genres.dart';
 import '../controllers/movie_details_bloc/movie_details_bloc.dart';
-import '../custom_widgets/custom_circular_progress_indicator.dart';
-import '../custom_widgets/custom_error_message_widget.dart';
+import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
+import '../../../core/custom_widgets/custom_error_message_widget.dart';
 
 class MoviesDetailsComponent extends StatelessWidget {
   const MoviesDetailsComponent({super.key});

@@ -5,9 +5,9 @@ import '../../../core/utils/enums.dart';
 import '../../domain/entities/movies.dart';
 import '../controllers/get_movies_bloc/movies_bloc.dart';
 import '../controllers/get_movies_bloc/movies_states.dart';
-import '../custom_widgets/custom_circular_progress_indicator.dart';
-import '../custom_widgets/custom_error_message_widget.dart';
-import '../custom_widgets/custom_movie_container.dart';
+import '../../../core/custom_widgets/custom_circular_progress_indicator.dart';
+import '../../../core/custom_widgets/custom_error_message_widget.dart';
+import '../../../core/custom_widgets/custom_movie_container.dart';
 
 class PopularMoviesComponent extends StatelessWidget {
   const PopularMoviesComponent({super.key});
