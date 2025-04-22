@@ -3,12 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/custom_widgets/custom_title_row.dart';
 import '../../../core/services/services_locator.dart';
 import '../../../core/utils/app_strings.dart';
-import '../../../movies/presentation/screens/popular_see_more_screen.dart';
 import '../components/on_the_air_tv_movies_component.dart';
 import '../components/popular_tv_movies_component.dart';
 import '../components/top_rated_tv_movies_component.dart';
 import '../controllers/get_tv_movies_bloc/get_tv_movies_bloc.dart';
 import '../controllers/get_tv_movies_bloc/get_tv_movies_event.dart';
+import 'see_more_popular_tv_movies_screen.dart';
+import 'see_more_top_rated_tv_movies_screen.dart';
 
 class TvMoviesScreen extends StatelessWidget {
   const TvMoviesScreen({super.key});
@@ -34,7 +35,8 @@ class TvMoviesScreen extends StatelessWidget {
                     () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PopularSeeMoreScreen(),
+                        builder:
+                            (context) => const SeeMorePopularTvMoviesScreen(),
                       ),
                     ),
               ),
@@ -46,7 +48,8 @@ class TvMoviesScreen extends StatelessWidget {
                     () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PopularSeeMoreScreen(),
+                        builder:
+                            (context) => const SeeMoreTopRatedTvMoviesScreen(),
                       ),
                     ),
               ),

@@ -7,4 +7,6 @@ class AppStrings {
   static const String kNowPlaying = "NOW PLAYING";
   static const String kGenres = "Genres:";
   static const String kOnTheAir = "ON THE AIR";
+  static const String kPopularTvs = "Popular Tvs";
+  static const String kTopRatedTvs = "Top Rated Tvs";
 }
